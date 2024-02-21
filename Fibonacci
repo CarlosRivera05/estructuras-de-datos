@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std ;
+int fibonacci (int n);
+int main(){
+    
+ int n;
+ cout<<"Fibonacci";
+ cout<<"Ingres el termino de fibonacci que quiera calcular "<<endl;
+ cin>>n;
+ 
+ cout<<"Serie de Fibonacci hasta el termino"<<n<<endl;
+ 
+ for(int i=0;i<n;i++){
+     
+     cout<<fibonacci(i)<<endl;
+     
+ }
+ return 0;
+}
+int fibonacci (int n)
+{
+    if (n<=1)
+        return 1;
+    
+    else 
+       return  fibonacci (n-1)+fibonacci(n-2);
+}
