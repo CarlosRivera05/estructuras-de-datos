@@ -1,0 +1,67 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+float solucion_unica(float b, float a);
+void  solucion_reales(float a, float b, float c, float& x1, float& x2);
+void  soluciones_imaginarias(float a, float b,float c, float& xR, float& xi);
+
+
+int main()
+
+{
+
+    float a, b, c, d, x1, x2, xR, xi;
+    cout << "ingresar el valor de a : "; cin >> a;
+
+    if (a == 0)
+        cout << "la ecuacion no tiene resultados" << endl;
+    else
+    {
+        cout << "ingresar el valor de b : "; cin >> b;
+        cout << "ingresar el valor de c : "; cin >> c;
+
+        d = b * b - 4 * a * c;
+        if (d == 0)
+            cout << "la solucion es unica y tiene un resultado de: " << solucion_unica(b, a);
+        else
+            if (d > 0)
+            {
+                solucion_reales(a, b, c, x1, x2);
+                cout << "la solucion de la ecuacion es" << " x1= " << x1 << " y " << " x2= " << x2 << endl;
+            }
+
+            else
+            {
+                soluciones_imaginarias(a, b, c, xR, xi);
+                cout << "el resultado de la ecuacion es: " << xR << "+" << xi << "i" << endl;
+                cout << "el resultado de la ecuacion es: " << xR << "-" << xi << "i" << endl;
+            }
+
+    }
+    return 0;
+}
+
+
+      float solucion_unica(float b, float a)
+        {
+          float d, c;
+
+            float aux;
+            aux = b / (2 * a);
+            return aux;
+        }
+        void  solucion_reales(float a, float b, float c, float& x1, float& x2)
+        {
+            float d;
+            d = b * b - 4 * a * c;
+            x1 = (-b + sqrt(d)) / (2 * a);
+            x2 = (-b - sqrt(d)) / (2 * a);
+        }
+
+        void soluciones_imaginarias(float a, float b, float c, float& xR, float& xi)
+        {
+            float d;
+            d = b * b - 4 * a * c;
+            xR = -b / (2 * a);
+            xi = sqrt(-d) / (2 * a);
+        }
