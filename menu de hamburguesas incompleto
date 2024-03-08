@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+int Hamburguesa();
+int Papas();
+int main() {
+	int opcion;
+	do {
+		cout << "Menu" <<endl;
+		cout << "1.Hamburguesas " << endl;
+		cout << "2.Papas" << endl;
+		cout << "3.Soda" << endl;
+		cout << "4. Total de mi compra" << endl;
+		cin >> opcion; 
+
+		switch (opcion) {
+		case 1:cout << "El total es de " << Hamburguesa() << endl; break;
+		case 2:cout << "El total es de " << Papas () <<endl; break;
+		case 3:			; break;
+		case 4: cout << "El total de tu toda tu compra es de:     " << endl;  break;
+
+		default:cout << "Opcion invalida" << endl;
+		}
+	} while (opcion!=0);
+	return 0;
+}
+
+
+
+int Hamburguesa(){
+	int n, c, resultado, suma;
+	cout << "Ingrese la hamburguesa que quiera comprar" << endl;
+	cout << "1. Hamburguesas normal Bs 3 " <<endl;
+	cout << "2. Hamburguesa con queso BS 5"<<endl;
+	cin >>n;
+	if (n == 1) {
+		cout << "Ingrese la cantidad que de hamburguesa normal que quiera" << endl;
+		cin >> c;
+		resultado = c * 3;
+	}
+	else {
+		cout << "Ingrese la cantidad de hamburguesas con queso que quiera comer" << endl;
+		cin >> c;
+		resultado = c * 5;
+	}
+	suma = resultado;
+	
+	return suma;
+
+
+}
+int Papas(){
+	int z, resultado;
+	cout << "Cuanta cantida de papas quieres comer " << endl;
+	cout << "El valor de las papas es de 2bs  :" << endl;
+	cin >> z;
+	resultado = z * 2;
+
+
+	return resultado;
+
+
+}
