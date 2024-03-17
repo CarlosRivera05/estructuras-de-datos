@@ -1,0 +1,56 @@
+#include <iostream>
+#define MAX 100
+using namespace std;
+
+void DARVALOR(float a[], int num);
+void CALCULAR_PROMEDIOS(float a[], int num);
+
+int main() {
+    int num, opcion;
+    float a[MAX];
+
+    do {
+        cout << "Menu" << endl;
+        cout << "1. Dar Valor al Vector" << endl;
+        cout << "2. Calcular Promedio de cada tres valores consecutivos" << endl;
+        cout << "3. Salir" << endl;
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                cout << "Ingrese el numero de Valores que quieres dar al vector" << endl;
+                cin >> num;
+                DARVALOR(a, num);
+                break;
+            case 2:
+                if (num >= 3) {
+                    CALCULAR_PROMEDIOS(a, num);
+                } else {
+                    cout << "El vector debe tener al menos tres valores para calcular promedios" << endl;
+                }
+                break;
+            case 3:
+                cout << "Haz salido correctamente" << endl;
+                break;
+            default:
+                cout << "El valor es invalido" << endl;
+        }
+
+    } while (opcion != 3);
+
+    return 0;
+}
+
+void DARVALOR(float a[], int num) {
+    for (int i = 0; i < num; i++) {
+        cout << "Ingrese el valor del espacio " << i << endl;
+        cin >> a[i];
+    }
+}
+
+void CALCULAR_PROMEDIOS(float a[], int num) {
+    for (int i = 0; i < num - 2; i++) {
+        float promedio = (a[i] + a[i + 1] + a[i + 2]) / 3.0;
+        cout << "Promedio P" << i + 1 << ": " << promedio << endl;
+    }
+}
