@@ -1,0 +1,65 @@
+
+#include <iostream>
+using namespace std;
+
+#define MAX 100
+
+void darValoresAlVector(float a[], int num);
+float Menor(float a[], int num);
+
+int main() {
+    int num, opcion;
+    float a[MAX];
+
+    do {
+        cout << "Menu" << endl;
+        cout << "1. Dar valores al vector" << endl;
+        cout << "2. Sacar Valor Menor " << endl;
+        cout << "3. Salir del Programa" << endl;
+        cout << "Ingrese su opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                cout << "Ingrese cuántos valores desea dar al vector: ";
+                cin >> num;
+                darValoresAlVector(a, num);
+                break;
+            case 2:
+                if (num > 0) {
+                    float maximo = Menor(a, num);
+                    cout << "El valor minimo en el vector es: " << maximo << endl;
+                } else {
+                    cout << "No se ha ingresado ningún valor al vector." << endl;
+                }
+                break;
+            case 3:
+                cout << "Haz salido correctamente del programa" << endl;
+                break;
+            default:
+                cout << "Opción no válida. Intente de nuevo." << endl;
+                break;
+        }
+    } while (opcion != 3);
+
+    return 0;
+}
+
+void darValoresAlVector(float a[], int num) {
+    for (int i = 0; i < num; ++i) {
+        cout << "Ingrese el valor para la posición " << i << ": ";
+        cin >> a[i];
+    }
+}
+
+float Menor(float a[], int num) {
+    float menor = a[0]; 
+    for (int i = 1; i < num; ++i) {
+        if (a[i] < menor) {
+            menor= a[i];
+        }
+    }
+
+    return menor;
+}
+
