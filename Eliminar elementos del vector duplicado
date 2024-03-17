@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+// Prototipo de la función eliminarDuplicados
+void eliminarDuplicados(int vector[], int& n);
+
+int main() {
+    int vector[] = {1, 2, 3, 2, 4, 5, 1, 6, 7};
+    int n = sizeof(vector) / sizeof(vector[0]);
+
+    cout << "Vector original: [";
+    for (int i = 0; i < n; ++i) {
+        cout << vector[i] << " ";
+    }
+    cout << "]" << endl;
+
+    // Llamada a la función eliminarDuplicados
+    eliminarDuplicados(vector, n);
+
+    cout << "Vector sin duplicados: [";
+    for (int i = 0; i < n; ++i) {
+        cout << vector[i] << " ";
+    }
+    cout << "]" << endl;
+
+    return 0;
+}
+
+// Definición de la función eliminarDuplicados
+void eliminarDuplicados(int vector[], int& n) {
+    int index = 0;
+
+    for (int i = 0; i < n; ++i) {
+        bool duplicado = false;
+        for (int j = 0; j < index; ++j) {
+            if (vector[i] == vector[j]) {
+                duplicado = true;
+                break;
+            }
+        }
+        if (!duplicado) {
+            vector[index++] = vector[i];
+        }
+    }
+
+    n = index;
+}
