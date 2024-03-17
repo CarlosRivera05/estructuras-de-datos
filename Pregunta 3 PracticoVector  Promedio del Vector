@@ -1,0 +1,55 @@
+
+#include <iostream>
+#define MAX 100
+using namespace std;
+
+void DARVALOR(float a[],int num);
+float PROMEDIO(float a[],int num );
+
+
+int main(){ 
+    int num,opcion;
+    float a[MAX];
+    
+    do{ cout<<"Menu"<<endl;
+        cout<<"1.Dar Valor al Vector"<<endl;
+        cout<<"2.Sacar Promedio "<<endl;
+        cout<<"3. Salir "<<endl;
+        cin>>opcion;
+        
+        switch(opcion){
+            case 1:cout<<"Ingrese el numero de Valores que quieres dar al vector"<<endl;
+             cin>>num; 
+            DARVALOR(a,num);break;
+            case 2: if (num>0)
+                    { cout<<"EL PROMEDIO ES " <<PROMEDIO(a,num);}
+                    else {cout<<"Ingrese valores al vector "<<endl;}break;
+            case 3 :cout<<"Haz salido correctamente: "<<endl;break;
+            default :cout<<"el valor es invalido : "<<endl;
+        }
+        
+    }while(opcion!=3);
+
+}
+
+void DARVALOR(float a[],int num){
+    for(int i=0;i<num;i++){
+        cout<<"Ingrese el valor del espacio <<"<<i<<endl;
+        cin>>a[i];
+    }
+    }
+    
+
+float PROMEDIO(float a[],int num ){
+    int suma=0;
+    int promedio;
+    
+    for(int i=0;i<num;i++){
+        suma=suma+a[i];
+        
+    }
+    promedio=suma/(num);
+    
+    return promedio;
+    
+}
