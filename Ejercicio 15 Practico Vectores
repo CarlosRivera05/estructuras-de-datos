@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const int MAX_ALUMNOS = 5;
+
+void ingresarDatos(string alumnos[], int notas[]);
+void ordenarNotas(string alumnos[], int notas[]);
+void mostrarTresMejores(string alumnos[], int notas[]);
+
+int main() {
+    string alumnos[MAX_ALUMNOS];
+    int notas[MAX_ALUMNOS];
+
+    ingresarDatos(alumnos, notas);
+    ordenarNotas(alumnos, notas);
+    mostrarTresMejores(alumnos, notas);
+
+    return 0;
+}
+
+void ingresarDatos(string alumnos[], int notas[]) {
+    for (int i = 0; i < MAX_ALUMNOS; i++) {
+        cout << "Ingrese el nombre del alumno " << i + 1 << ": ";
+        cin >> alumnos[i];
+        cout << "Ingrese la nota del alumno " << i + 1 << ": ";
+        cin >> notas[i];
+    }
+}
+
+void ordenarNotas(string alumnos[], int notas[]) {
+    for (int i = 0; i < MAX_ALUMNOS - 1; i++) {
+        for (int j = 0; j < MAX_ALUMNOS - i - 1; j++) {
+            if (notas[j] < notas[j + 1]) {
+                int tempNota = notas[j];
+                notas[j] = notas[j + 1];
+                notas[j + 1] = tempNota;
+
+                string tempAlumno = alumnos[j];
+                alumnos[j] = alumnos[j + 1];
+                alumnos[j + 1] = tempAlumno;
+            }
+        }
+    }
+}
+
+void mostrarTresMejores(string alumnos[], int notas[]) {
+    cout << "Las tres mejores notas son:" << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << alumnos[i] << ": " << notas[i] << endl;
+    }
+}
+
