@@ -1,4 +1,4 @@
-// Andrés Osinaga
+
 #pragma once
 class Vector{
 private:
