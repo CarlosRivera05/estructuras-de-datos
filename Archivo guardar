@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+class Recordatorio {
+private:
+    string nombre;
+    string fecha;
+    string descripcion;
+    bool completado;
+
+public:
+    
+    Recordatorio(string n, string f, string d, bool c){
+  nombre=n;
+  fecha=f;
+descripcion=d
+completado=c;}
+
+    void guardarArchivo(ofstream& fsalida) {
+        fsalida.write(reinterpret_cast<char*>(&nombre), sizeof(nombre));
+        fsalida.write(reinterpret_cast<char*>(&fecha), sizeof(fecha));
+        fsalida.write(reinterpret_cast<char*>(&descripcion), sizeof(descripcion));
+        fsalida.write(reinterpret_cast<char*>(&completado), sizeof(completado));
+    }
+};
